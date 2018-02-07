@@ -4,7 +4,6 @@ import java.io.Serializable;
 
 import compiler.ExecutionException;
 import compiler.Program;
-import expressions.BadExpressionException;
 
 /**
  * Represents an executable instruction
@@ -38,9 +37,8 @@ public abstract class Instruction implements Serializable {
 	 * @param program				The program running this instruction
 	 * @return						true if the programCounter can advance, false otherwise (if the instruction altered it)
 	 * @throws ExecutionException	If an error occur during the execution of an instruction
-	 * @throws BadExpressionException		If an error occur during the execution of an expression
 	 */
-	public abstract boolean execute(Program program) throws ExecutionException, BadExpressionException;
+	public abstract boolean execute(Program program) throws ExecutionException;
 
 
 	/**

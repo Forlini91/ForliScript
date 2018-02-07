@@ -24,7 +24,7 @@ public class Program implements Serializable {
 	private final int n;
 
 	/** The current instruction */
-	private int prograpCounter = 0;
+	private int programCounter = 0;
 
 	/**
 	 * Create a new {@link Program}
@@ -42,13 +42,13 @@ public class Program implements Serializable {
 	 * @throws ExecutionException	If the program contains an error
 	 */
 	public void run() throws ExecutionException {
-		prograpCounter = 0;
+		programCounter = 0;
 		Instruction instruction = null;
-		while (prograpCounter < n){
-			instruction = instructions.get(prograpCounter);
+		while (programCounter < n){
+			instruction = instructions.get(programCounter);
 			try{
 				if (instruction.execute(this)){
-					prograpCounter++;
+					programCounter++;
 				}
 			} catch (Exception e){
 				throw new ExecutionException("Error while executing instruction:\n\t\t" + instruction, e);
@@ -61,14 +61,14 @@ public class Program implements Serializable {
 	 * @param position	the new position
 	 */
 	public void jumpTo(int position){
-		prograpCounter = position;
+		programCounter = position;
 	}
 
 	/**
 	 * Stop the program
 	 */
 	public void stop () {
-		prograpCounter = n;	//Jump to the end of the program
+		programCounter = n;	//Jump to the end of the program
 	}
 
 

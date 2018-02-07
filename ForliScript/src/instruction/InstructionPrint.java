@@ -2,7 +2,6 @@ package instruction;
 
 import compiler.ExecutionException;
 import compiler.Program;
-import expressions.BadExpressionException;
 import expressions.Expression;
 
 /**
@@ -10,13 +9,13 @@ import expressions.Expression;
  * @author MarcoForlini
  */
 public class InstructionPrint extends Instruction {
-
+	
 	private static final long serialVersionUID = 5436689889168893484L;
+
 	
-
-
+	
 	private Expression expression = null;
-	
+
 	/**
 	 * Create a new {@link InstructionPrint}
 	 * @param line					The line
@@ -28,11 +27,11 @@ public class InstructionPrint extends Instruction {
 		super(line, lineNumber, compiledLineNumber);
 		this.expression = expression;
 	}
-	
+
 	@Override
-	public boolean execute (Program program) throws ExecutionException, BadExpressionException {
+	public boolean execute (Program program) throws ExecutionException {
 		System.out.print(expression.eval());
 		return true;
 	}
-
+	
 }

@@ -3,7 +3,6 @@ package instruction;
 
 import compiler.ExecutionException;
 import compiler.Program;
-import expressions.BadExpressionException;
 import expressions.Expression;
 
 
@@ -34,18 +33,16 @@ public class InstructionWhile extends Instruction {
 	}
 	
 	/**
-	 * Set the position where to jump if condition is false
+	 * Sets the position where to jump if condition is false
 	 *
-	 * @param falseDestination
-	 *            the destination of the jump if condition is false
+	 * @param falseDestination	the destination of the jump if condition is false
 	 */
 	public void setFalseJump (int falseDestination) {
 		this.falseDestination = falseDestination;
 	}
 	
 	@Override
-	public boolean execute (Program program)
-			throws ExecutionException, BadExpressionException {
+	public boolean execute (Program program) throws ExecutionException {
 		if (condition.eval().isTrue()) {
 			return true;
 		}

@@ -4,7 +4,6 @@ import compiler.CompilatorException;
 import compiler.ExecutionException;
 import compiler.Program;
 import compiler.Utils;
-import expressions.BadExpressionException;
 import expressions.Expression;
 import expressions.ValNumber;
 import expressions.ValString;
@@ -15,13 +14,13 @@ import expressions.Variable;
  * @author MarcoForlini
  */
 public class InstructionRead extends Instruction {
-	
+
 	private static final long serialVersionUID = 7775323029061673000L;
+
 	
-
-
+	
 	private Variable variable = null;
-
+	
 	/**
 	 * Create a new {@link InstructionRead}
 	 * @param line					The line
@@ -38,9 +37,9 @@ public class InstructionRead extends Instruction {
 			throw new CompilatorException("Instruction Read can only assign the value to a variable");
 		}
 	}
-
+	
 	@Override
-	public boolean execute (Program program) throws ExecutionException, BadExpressionException {
+	public boolean execute (Program program) throws ExecutionException {
 		String input = Utils.scanner.nextLine();
 		try {
 			float number = Utils.toNumber(input);
@@ -50,5 +49,5 @@ public class InstructionRead extends Instruction {
 		}
 		return true;
 	}
-	
+
 }
